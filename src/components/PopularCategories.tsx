@@ -1,3 +1,6 @@
+"use client";
+
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Product } from '@/types/product';
@@ -6,12 +9,9 @@ const POPULAR_CATEGORY_NAMES = [
   'Binoculars',
   'Riflescopes',
   'Spotting Scopes',
+  'Dot Sights',
+  'Precision Lenses',
   'Rangefinders',
-  'Red Dots',
-  'Monoculars',
-  'Night Vision',
-  'Thermal',
-  'Scope Mounts',
   'Optics Accessories'
 ] as const;
 
@@ -23,7 +23,8 @@ export default function PopularCategories({ products }: PopularCategoriesProps) 
   const categories = POPULAR_CATEGORY_NAMES.map((name) => {
     const categoryProducts = products.filter(
       (product) => product.category?.trim().toLowerCase() === name.toLowerCase() ||
-                   product.title?.toLowerCase().includes(name.toLowerCase())
+                   product.title?.toLowerCase().includes(name.toLowerCase()) ||
+                   (name === 'Dot Sights' && (product.category?.toLowerCase().includes('dot') || product.title?.toLowerCase().includes('flashdot')))
     );
 
     return {
@@ -64,8 +65,12 @@ export default function PopularCategories({ products }: PopularCategoriesProps) 
                     src={category.image!}
                     alt={`${category.name} collection`}
                     fill
+                    unoptimized={true}
                     sizes="(max-width: 1023px) 50vw, 25vw"
                     className="object-contain p-5 sm:p-7 group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = '/placeholder.svg';
+                    }}
                   />
                 </div>
 

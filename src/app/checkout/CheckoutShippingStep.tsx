@@ -487,11 +487,15 @@ export default function CheckoutShippingStep({
                   <div className="relative w-16 h-16 flex-shrink-0">
                     <div className="w-full h-full bg-gray-50 rounded-2xl flex items-center justify-center overflow-hidden">
                       <Image
-                        src={product.images[0]}
+                        src={product.images && product.images[0] ? product.images[0] : '/placeholder.svg'}
                         alt={product.title}
                         width={56}
                         height={56}
+                        unoptimized={true}
                         className="w-14 h-14 object-cover rounded-lg transition-transform duration-200 hover:scale-105"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = '/placeholder.svg';
+                        }}
                       />
                     </div>
                     <div className="absolute -top-1 -right-1 w-5 h-5 bg-gray-600 rounded-full flex items-center justify-center shadow-sm">
@@ -577,11 +581,15 @@ export default function CheckoutShippingStep({
                     {/* Image */}
                     <div className="w-20 h-20 flex-shrink-0 rounded-xl overflow-hidden bg-gray-50 border border-gray-100">
                       <Image
-                        src={product.images[0]}
+                        src={product.images && product.images[0] ? product.images[0] : '/placeholder.svg'}
                         alt={product.title}
                         width={80}
                         height={80}
+                        unoptimized={true}
                         className="w-full h-full object-cover"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = '/placeholder.svg';
+                        }}
                       />
                     </div>
 

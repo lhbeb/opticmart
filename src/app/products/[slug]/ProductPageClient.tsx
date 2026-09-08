@@ -490,34 +490,28 @@ export default function ProductPageClient({ product: initialProduct }: ProductPa
             <div className="relative lg:sticky lg:top-0 lg:self-start">
               <div onClick={() => handleImageClick(activeImage)} className="cursor-zoom-in relative group aspect-[4/3] w-full">
                 {images && images.length > 0 && images[activeImage] ? (
-                  <>
-                    {!imgLoaded && (
-                      <div className="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded-md z-10">
-                        <div className="h-16 w-16 bg-gray-300 rounded-full" />
-                      </div>
-                    )}
+                  <div className="relative w-full h-full bg-[#F8FAFC] rounded-md overflow-hidden">
                     <Image
                       key={images[activeImage]}
                       src={images[activeImage]}
                       alt={`${title || 'Product'} - Image ${activeImage + 1}`}
                       fill
                       priority
-                      quality={PRODUCT_IMAGE_QUALITY}
+                      unoptimized={true}
                       sizes="(max-width: 1024px) 100vw, 50vw"
-                      className={`object-cover rounded-md transition-opacity duration-300 ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
+                      className="object-contain rounded-md transition-all duration-300"
                       onError={(e) => {
-                        console.error('Image failed to load:', images[activeImage]);
-                        (e.target as HTMLImageElement).src = '/placeholder.png';
+                        (e.target as HTMLImageElement).src = '/placeholder.svg';
                       }}
-                      onLoadingComplete={() => setImgLoaded(true)}
+                      onLoad={() => setImgLoaded(true)}
                     />
-                  </>
+                  </div>
                 ) : (
-                  <div className="w-full h-full bg-gray-200 flex items-center justify-center rounded-md">
-                    <span className="text-gray-400">No image available</span>
+                  <div className="w-full h-full bg-gray-100 flex items-center justify-center rounded-md">
+                    <span className="text-gray-400 font-medium">No image available</span>
                   </div>
                 )}
-                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-200 rounded-md flex items-center justify-center">
+                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-200 rounded-md flex items-center justify-center pointer-events-none">
                   <ZoomIn className="h-12 w-12 text-white opacity-0 group-hover:opacity-75 transition-opacity" />
                 </div>
               </div>
@@ -528,21 +522,20 @@ export default function ProductPageClient({ product: initialProduct }: ProductPa
                       <button
                         key={idx}
                         onClick={() => setActiveImage(idx)}
-                        className={`relative flex-shrink-0 w-20 h-20 rounded-md overflow-hidden ${activeImage === idx ? 'ring-2 ring-[#0F172A]' : 'ring-1 ring-gray-200'}`}
+                        className={`relative flex-shrink-0 w-20 h-20 rounded-md overflow-hidden bg-[#F8FAFC] ${activeImage === idx ? 'ring-2 ring-[#0F172A]' : 'ring-1 ring-gray-200'}`}
                       >
                         <Image
                           src={image}
                           alt={`${title || 'Product'} thumbnail ${idx + 1}`}
                           fill
-                          quality={90}
+                          unoptimized={true}
                           sizes="80px"
-                          className="object-cover"
+                          className="object-contain p-1"
                           onError={(e) => {
-                            console.error('Thumbnail failed to load:', image);
-                            (e.target as HTMLImageElement).src = '/placeholder.png';
+                            (e.target as HTMLImageElement).src = '/placeholder.svg';
                           }}
                         />
-                        {activeImage === idx && <div className="absolute inset-0 bg-white/10"></div>}
+                        {activeImage === idx && <div className="absolute inset-0 bg-black/5 pointer-events-none"></div>}
                       </button>
                     ) : null
                   ))}

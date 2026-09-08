@@ -94,13 +94,17 @@ const RecommendedProducts: React.FC<RecommendedProductsProps> = ({ currentProduc
               href={`/products/${product.slug}`}
               className="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg hover:border-gray-300 transition-all duration-300 transform hover:-translate-y-1"
             >
-              <div className="aspect-square relative overflow-hidden">
+              <div className="aspect-square relative overflow-hidden bg-[#F8FAFC]">
                 <Image
-                  src={product.images[0]}
+                  src={product.images && product.images[0] ? product.images[0] : '/placeholder.svg'}
                   alt={product.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  unoptimized={true}
+                  className="object-contain p-2 group-hover:scale-105 transition-transform duration-300"
                   sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 20vw"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/placeholder.svg';
+                  }}
                 />
               </div>
 

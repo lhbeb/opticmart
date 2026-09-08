@@ -1167,8 +1167,12 @@ export default function AdminProductsPage() {
                     src={product.images[0]}
                     alt={product.title}
                     fill
+                    unoptimized={true}
                     className="object-cover"
                     priority={false}
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = '/placeholder.svg';
+                    }}
                   />
                 ) : (
                   <div className="flex items-center justify-center h-full">
@@ -1366,8 +1370,12 @@ export default function AdminProductsPage() {
                             alt={product.title}
                             width={48}
                             height={48}
+                            unoptimized={true}
                             className="object-cover w-full h-full"
                             priority={false}
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).src = '/placeholder.svg';
+                            }}
                           />
                         ) : (
                           <div className="flex items-center justify-center h-full">

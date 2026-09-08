@@ -19,29 +19,33 @@ const ProductCard: React.FC<ProductCardProps> = ({
 }) => {
   const { slug, title, price, images, inStock } = product;
   const isSoldOut = inStock === false;
-  const [imgLoaded, setImgLoaded] = React.useState(false);
+  const imageSource = (images && images.length > 0 && images[0]) ? images[0] : '/placeholder.svg';
+  const [currentSrc, setCurrentSrc] = React.useState(imageSource);
+
+  React.useEffect(() => {
+    setCurrentSrc((images && images.length > 0 && images[0]) ? images[0] : '/placeholder.svg');
+  }, [images]);
 
   return (
     <div className={`${cardBackground} rounded-xl border border-[#0F172A]/10 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden group`}>
       <Link href={`/products/${slug}`} className="block">
-        <div className={`relative w-full bg-[#F8FAFC]/40 ${showFullImage ? 'aspect-square' : 'h-48 sm:h-52'}`}>
-          {!imgLoaded && (
-            <div className="absolute inset-0 flex items-center justify-center bg-gray-100 animate-pulse rounded-t-xl z-10">
-              <div className="h-12 w-12 bg-gray-200 rounded-full" />
-            </div>
-          )}
+        <div className={`relative w-full bg-[#F8FAFC] ${showFullImage ? 'aspect-square' : 'h-48 sm:h-52'}`}>
           <Image
-            src={images[0]}
+            src={currentSrc}
             alt={title}
             fill
-            className={`${showFullImage ? 'object-contain p-3 sm:p-5' : 'object-cover'} rounded-t-xl transition-all duration-300 group-hover:scale-105 ${imgLoaded ? 'opacity-100' : 'opacity-0'} ${isSoldOut ? 'opacity-50' : ''}`}
+            className={`${showFullImage ? 'object-contain p-3 sm:p-5' : 'object-cover'} rounded-t-xl transition-all duration-300 group-hover:scale-105 ${isSoldOut ? 'opacity-50' : ''}`}
             sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
             loading="lazy"
             unoptimized
-            onLoad={() => setImgLoaded(true)}
+            onError={() => {
+              if (currentSrc !== '/placeholder.svg') {
+                setCurrentSrc('/placeholder.svg');
+              }
+            }}
           />
           {isSoldOut && (
-            <div className="absolute inset-0 bg-[rgba(35,63,49,0.75)] flex items-center justify-center rounded-t-xl">
+            <div className="absolute inset-0 bg-[rgba(35,63,49,0.75)] flex items-center justify-center rounded-t-xl z-10">
               <div className="bg-[#F8FAFC] rounded-lg px-5 py-2 shadow-md">
                 <span className="sold-out-badge text-[#0F172A] text-sm uppercase tracking-wider whitespace-nowrap font-bold">
                   Sold Out
