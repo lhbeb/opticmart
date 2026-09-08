@@ -469,7 +469,8 @@ export default function AdminOrdersPage() {
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleString('en-US', {
+    return date.toLocaleString('en-GB', {
+      timeZone: 'Europe/London',
       year: 'numeric',
       month: 'short',
       day: 'numeric',
@@ -479,7 +480,8 @@ export default function AdminOrdersPage() {
   };
 
   const formatFullDate = (dateString: string) => {
-    return new Date(dateString).toLocaleString('en-US', {
+    return new Date(dateString).toLocaleString('en-GB', {
+      timeZone: 'Europe/London',
       weekday: 'short',
       year: 'numeric',
       month: 'short',

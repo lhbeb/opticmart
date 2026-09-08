@@ -77,7 +77,7 @@ export async function POST(request: NextRequest) {
         <div style="background-color: #e8f4fd; padding: 15px; border-radius: 8px; margin: 20px 0;">
           <h4 style="color: #0046be; margin-top: 0;">Submission Information:</h4>
           <ul style="list-style: none; padding: 0;">
-            <li style="margin: 5px 0;"><strong>Submitted At:</strong> ${new Date().toLocaleString()}</li>
+            <li style="margin: 5px 0;"><strong>Submitted At:</strong> ${new Date().toLocaleString('en-GB', { timeZone: 'Europe/London' })}</li>
             <li style="margin: 5px 0;"><strong>Domain:</strong> ${domain}</li>
             <li style="margin: 5px 0;"><strong>IP Address:</strong> ${request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'Unknown'}</li>
           </ul>

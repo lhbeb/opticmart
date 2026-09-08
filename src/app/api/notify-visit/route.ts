@@ -143,10 +143,10 @@ export async function POST(req: NextRequest) {
       isp = 'Local/VPN';
     }
 
-    // Date and time (server-side)
+    // Date and time (UK timezone)
     const now = new Date();
-    const date = now.toLocaleDateString('en-US');
-    const time = now.toLocaleTimeString('en-US');
+    const date = now.toLocaleDateString('en-GB', { timeZone: 'Europe/London' });
+    const time = now.toLocaleTimeString('en-GB', { timeZone: 'Europe/London', timeZoneName: 'short' });
 
     // Check if this is a checkout page visit, add to cart action, or About Us page visit
     const isCheckoutPage = url.includes('/checkout') || action === 'checkout_visit';
@@ -162,7 +162,7 @@ export async function POST(req: NextRequest) {
         '💰 <b>A user added a product to cart!</b> 💰',
         '',
         `📦 <b>Product:</b> ${productTitle}`,
-        productPrice ? `💵 <b>Price:</b> $${productPrice.toLocaleString()}` : '',
+        productPrice ? `💵 <b>Price:</b> £${Number(productPrice).toFixed(2)}` : '',
         productSlug ? `🔗 <b>Product URL:</b> <a href="${url.replace('/checkout', `/products/${productSlug}`)}">View Product</a>` : '',
         '',
         `🔗 <b>Current URL:</b> <a href="${url}">${url}</a>`,

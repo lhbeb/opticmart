@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
         <li><strong>Message:</strong> ${message}</li>
         <li><strong>Domain:</strong> ${domain}</li>
       </ul>
-      <p><strong>Submitted At:</strong> ${new Date().toLocaleString()}</p>
+      <p><strong>Submitted At:</strong> ${new Date().toLocaleString('en-GB', { timeZone: 'Europe/London' })}</p>
     `;
 
     const mailOptions = {

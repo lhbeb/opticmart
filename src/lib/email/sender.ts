@@ -149,7 +149,7 @@ export async function sendOrderEmail(order: any): Promise<{ success: boolean; er
         <li><strong>Phone Number:</strong> ${customer_phone || 'Not provided'}</li>
       </ul>
 
-      <p><strong>Order Date:</strong> ${new Date(order.created_at).toLocaleString()}</p>
+      <p><strong>Order Date:</strong> ${new Date(order.created_at).toLocaleString('en-GB', { timeZone: 'Europe/London' })}</p>
     `;
 
     const mailOptions = {
@@ -281,8 +281,8 @@ export async function sendPaypalPaymentSuccessEmail(
           ${extendedShipping.country ? `<li><strong>Country:</strong> ${extendedShipping.country}</li>` : ''}
         </ul>
 
-        <p><strong>Order Date:</strong> ${new Date(order.created_at).toLocaleString()}</p>
-        <p><strong>IPN Received:</strong> ${new Date().toLocaleString()}</p>
+        <p><strong>Order Date:</strong> ${new Date(order.created_at).toLocaleString('en-GB', { timeZone: 'Europe/London' })}</p>
+        <p><strong>IPN Received:</strong> ${new Date().toLocaleString('en-GB', { timeZone: 'Europe/London' })}</p>
       `,
     };
 
@@ -406,7 +406,7 @@ export async function sendStripePaymentSuccessEmail(
     : Number(order.product_price || 0).toFixed(2);
   const currencyUpper = (payment.currency || 'GBP').toUpperCase();
   const paymentIntentId = payment.paymentIntentId || order.stripe_payment_intent_id || 'N/A';
-  const processedAt = new Date().toLocaleString('en-US', {
+  const processedAt = new Date().toLocaleString('en-GB', {
     timeZone: 'Europe/London',
     dateStyle: 'full',
     timeStyle: 'short',

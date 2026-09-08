@@ -12,5 +12,5 @@ export const STORE_FAQS: readonly StoreFaq[] = [
   { question: 'Where can I find shipping and delivery information?', answer: 'See our shipping policy for dispatch timelines, insured delivery coverage, and carrier transit estimates.', linkHref: '/shipping-policy', linkLabel: 'Read shipping policy' },
   { question: 'How do I track my order?', answer: 'Once your order dispatches, you will receive tracking updates by email. You can also visit our Track Order page at any time.', linkHref: '/track', linkLabel: 'Track your order' },
   { question: 'What is the return policy?', answer: 'Eligible items may be returned within 30 days in original condition. Review our return policy for full details.', linkHref: '/return-policy', linkLabel: 'Read return policy' },
-  { question: 'How can I contact OpticMart?', answer: 'Our customer support and optical equipment specialists are available to answer any questions.', linkHref: '/contact', linkLabel: 'Contact our team' },
+  { question: 'How can I contact OpticMart and what are your working hours?', answer: 'Our UK customer support and optics team is available Monday to Friday from 9:00 AM to 5:30 PM (UK Time / GMT). Online orders are processed and dispatched during standard business hours.', linkHref: '/contact', linkLabel: 'Contact our team' },
 ];

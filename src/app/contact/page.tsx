@@ -1,8 +1,9 @@
 "use client";
 
 import BrandContactDetails from '@/components/BrandContactDetails';
+import { brand } from '@/config/brand';
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Building2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Building2, Clock } from 'lucide-react';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -17,9 +18,31 @@ export default function ContactPage() {
   const [error, setError] = useState('');
 
   const schemaMarkup = {
-    '@context': 'https://schema.org', '@type': 'ContactPage',
-    name: 'Contact OpticMart', url: 'https://opticmart.shop/contact',
-    description: 'Contact OpticMart for camera, binoculars, and order support.',
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Contact OpticMart',
+    url: 'https://opticmart.shop/contact',
+    description: 'Contact OpticMart for camera, binoculars, optical gear, and order support in the United Kingdom.',
+    mainEntity: {
+      '@type': 'Organization',
+      name: 'OpticMart',
+      url: 'https://opticmart.shop',
+      telephone: brand.phone,
+      email: brand.email,
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: brand.phone,
+        contactType: 'customer service',
+        areaServed: 'GB',
+        availableLanguage: ['en'],
+        hoursAvailable: {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '09:00',
+          closes: '17:30',
+        },
+      },
+    },
   };
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {

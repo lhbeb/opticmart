@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <h2 style="color: #0046be;">New Newsletter Subscription</h2>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
+        <p><strong>Date:</strong> ${new Date().toLocaleString('en-GB', { timeZone: 'Europe/London' })}</p>
         <p><strong>Source:</strong> OpticMart Website Newsletter</p>
         <hr style="border: 1px solid #eee; margin: 20px 0;">
         <p style="color: #666; font-size: 14px;">

@@ -178,8 +178,8 @@ export async function POST(request: NextRequest) {
                 This is an automated notification from OpticMart
               </p>
               <p style="margin: 0; color: #9ca3af; font-size: 11px;">
-                Payment processed at ${new Date().toLocaleString('en-US', {
-      timeZone: 'America/New_York',
+                Payment processed at ${new Date().toLocaleString('en-GB', {
+      timeZone: 'Europe/London',
       dateStyle: 'full',
       timeStyle: 'long'
     })}

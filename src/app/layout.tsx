@@ -108,20 +108,26 @@ export default function RootLayout({
                 "url": "https://opticmart.shop",
                 "logo": "https://opticmart.shop/logosvg.svg",
                 "description": "OpticMart - Premium Optics & Outdoor Gear.",
-                "telephone": "+18555292501",
+                "telephone": "+44 20 7946 0912",
                 "contactPoint": {
                   "@type": "ContactPoint",
-                  "telephone": "+18555292501",
+                  "telephone": "+44 20 7946 0912",
                   "contactType": "customer service",
-                  "areaServed": "US"
+                  "areaServed": "GB",
+                  "availableLanguage": ["en"],
+                  "hoursAvailable": {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                    "opens": "09:00",
+                    "closes": "17:30"
+                  }
                 },
                 "address": {
                   "@type": "PostalAddress",
-                  "streetAddress": "141 Elm St #01",
-                  "addressLocality": "Marlborough",
-                  "addressRegion": "MA",
-                  "postalCode": "01752",
-                  "addressCountry": "US"
+                  "streetAddress": "71-75 Shelton Street, Covent Garden",
+                  "addressLocality": "London",
+                  "postalCode": "WC2H 9JQ",
+                  "addressCountry": "GB"
                 }
               })
             }}
