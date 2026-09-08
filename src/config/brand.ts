@@ -6,7 +6,7 @@ export const brand = {
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'support@opticmart.shop',
   phone: process.env.NEXT_PUBLIC_CONTACT_PHONE || '+44 20 7946 0912',
   address: process.env.NEXT_PUBLIC_BUSINESS_ADDRESS || '20–22 Wenlock Road, London, England, N1 7GU, United Kingdom',
-  instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || '',
+  instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || 'https://www.instagram.com/opticmartofficial/',
   timeZone: 'Europe/London',
   timeZoneLabel: 'GMT / BST (UK Time)',
   hours: 'Monday – Friday: 9:00 AM – 5:30 PM (UK Time)',
