@@ -558,7 +558,7 @@ export default function ProductPageClient({ product: initialProduct }: ProductPa
               <SellerBadge sellerId={product?.sellerId} size="md" />
               {condition && (
                 <div className="mt-3 w-fit max-w-full">
-                  <p className="mb-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-500">
+                  <p className="mb-1 text-[11px] font-semibold uppercase text-gray-500">
                     Condition
                   </p>
                   <div

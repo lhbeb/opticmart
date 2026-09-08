@@ -29,7 +29,7 @@ export default function ShippingPolicyPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }} />
       <div className="container mx-auto max-w-5xl px-4">
         <section className="rounded-3xl bg-[#0F172A] p-8 text-white shadow-lg sm:p-12">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-[#9BD4D3]">OpticMart delivery</p>
+          <p className="mb-3 text-sm font-semibold uppercase text-[#9BD4D3]">OpticMart delivery</p>
           <h1 className="text-4xl font-bold sm:text-5xl">Shipping Policy</h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-white/85">Free standard delivery is included on eligible orders delivered to a serviceable United Kingdom address. This page states the same handling and transit estimates used in our product data.</p>
         </section>

@@ -10,7 +10,7 @@ const Hero = () => {
           <div className="order-2 flex w-full flex-col justify-center bg-[#0F172A] p-6 sm:p-8 md:order-1 md:p-10 lg:p-12 text-[#F8FAFC]">
             {/* Optics brand introduction */}
             <h1 className="max-w-[620px] text-2xl font-bold leading-tight text-[#F8FAFC] md:text-3xl lg:text-[36px]">
-              <span className="mb-4 block text-xs font-semibold uppercase tracking-[0.2em] text-[#38BDF8]">Authorized Optics &amp; Camera Dealer</span>
+              <span className="mb-4 block text-xs font-semibold uppercase text-[#38BDF8]">Authorized Optics &amp; Camera Dealer</span>
               <span className="block leading-tight text-white font-heading">
                 Precision in Focus. Cameras, Lenses &amp; Binoculars.
               </span>

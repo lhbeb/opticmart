@@ -10,5 +10,5 @@
     <circle cx="45" cy="85" r="12" fill="#0284C7" stroke="none" opacity="0.5"/>
     <circle cx="95" cy="85" r="12" fill="#0284C7" stroke="none" opacity="0.5"/>
   </g>
-  <text x="200" y="275" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#64748B" text-anchor="middle" letter-spacing="1">OPTICMART</text>
+  <text x="200" y="275" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#64748B" text-anchor="middle">OPTICMART</text>
 </svg>

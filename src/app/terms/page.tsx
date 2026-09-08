@@ -6,7 +6,7 @@ export default function TermsPage() {
     <main className="min-h-screen bg-gray-50 py-12">
       <div className="container mx-auto max-w-4xl px-4">
         <header className="rounded-3xl bg-[#0F172A] p-8 text-white sm:p-10">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#9BD4D3]">OpticMart</p>
+          <p className="text-sm font-semibold uppercase text-[#9BD4D3]">OpticMart</p>
           <h1 className="mt-3 text-4xl font-bold">Terms of Service</h1>
           <p className="mt-4 text-white/75">Last updated: September 8, 2026</p>
         </header>

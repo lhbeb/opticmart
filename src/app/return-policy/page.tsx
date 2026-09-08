@@ -14,7 +14,7 @@ export default function ReturnPolicyPage() {
     <main className="min-h-screen bg-gray-50 py-12">
       <div className="container mx-auto max-w-4xl px-4">
         <header className="rounded-3xl bg-[#0F172A] p-8 text-white sm:p-10">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#9BD4D3]">Customer care</p>
+          <p className="text-sm font-semibold uppercase text-[#9BD4D3]">Customer care</p>
           <h1 className="mt-3 text-4xl font-bold">Return & Refund Policy</h1>
           <p className="mt-4 max-w-2xl text-lg leading-8 text-white/85">Eligible items may be returned by mail within {storePolicy.returnWindowDays} calendar days after delivery.</p>
         </header>
