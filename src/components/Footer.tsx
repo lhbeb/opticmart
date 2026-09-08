@@ -2,10 +2,6 @@ import BrandContactDetails from '@/components/BrandContactDetails';
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, MessageSquare, MapPin, Instagram } from 'lucide-react';
-
-const socialIconClass =
-  'inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#0284C7]/60 text-[#F8FAFC] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#0284C7] hover:bg-[#0284C7] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0F172A]';
 
 const Footer = () => {
   return (
@@ -15,15 +11,15 @@ const Footer = () => {
           <div>
             <Link href="/" className="flex items-center space-x-2 mb-4">
               <Image
-                src="/mainlogo.svg"
+                src="/logosvg.svg"
                 alt="OpticMart Logo"
-                width={160}
-                height={44}
-                className="h-auto w-36 sm:w-40 text-white"
+                width={200}
+                height={40}
+                className="h-auto w-40 sm:w-48 text-white"
               />
             </Link>
             <p className="mb-4 text-[#F8FAFC]/90 text-sm leading-relaxed">
-              OpticMart is a premier dealer for cameras, binoculars, and precision optics. Discover cameras, binoculars, and precision optics equipment.
+              OpticMart is a premier dealer for professional cameras, precision binoculars, and optical equipment. High performance glass for photographers, birdwatchers, and outdoor enthusiasts.
             </p>
             <BrandContactDetails />
           </div>
@@ -31,7 +27,9 @@ const Footer = () => {
             <h3 className="text-base font-semibold text-white mb-4 tracking-wide uppercase">Navigation</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/" className="hover:text-white hover:underline transition-colors duration-200">Home</Link></li>
-              <li><Link href="/search" className="hover:text-white hover:underline transition-colors duration-200">Kayaks & Inventory</Link></li>
+              <li><Link href="/search?category=Cameras" className="hover:text-white hover:underline transition-colors duration-200">Cameras</Link></li>
+              <li><Link href="/search?category=Binoculars" className="hover:text-white hover:underline transition-colors duration-200">Binoculars</Link></li>
+              <li><Link href="/search?category=Optics" className="hover:text-white hover:underline transition-colors duration-200">Lenses & Optics</Link></li>
               <li><Link href="/#featured" className="hover:text-white hover:underline transition-colors duration-200">Featured Models</Link></li>
               <li><Link href="/track" className="hover:text-white hover:underline transition-colors duration-200">Track Order</Link></li>
               <li><Link href="/contact" className="hover:text-white hover:underline transition-colors duration-200">Contact Us</Link></li>

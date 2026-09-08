@@ -13,7 +13,7 @@ interface SellerBadgeProps {
 export default function SellerBadge({ sellerId, size = 'sm' }: SellerBadgeProps) {
   const [seller, setSeller] = useState<Seller | null>(null);
   const [loading, setLoading] = useState(!!sellerId);
-  const fallbackAvatarUrl = '/mainlogo.svg';
+  const fallbackAvatarUrl = '/logosvg.svg';
 
   useEffect(() => {
     if (!sellerId) { setLoading(false); return; }
@@ -102,7 +102,7 @@ export default function SellerBadge({ sellerId, size = 'sm' }: SellerBadgeProps)
           <div className="font-bold mb-1.5 flex items-center gap-1.5 text-[#0F172A]">
             <ShieldCheck className="w-4 h-4 text-[#0284C7]" /> OpticMart Optics
           </div>
-          Explore OpticMart kayaks and paddling accessories. Contact our team for help with your order.
+          Explore OpticMart cameras, binoculars, and precision optics accessories. Contact our team for help with your order.
         </div>
       </div>
 

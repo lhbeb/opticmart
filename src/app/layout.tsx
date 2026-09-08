@@ -88,7 +88,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.png" type="image/png" />
-        <link rel="preload" href="/mainlogo.svg" as="image" type="image/svg+xml" />
+        <link rel="preload" href="/logosvg.svg" as="image" type="image/svg+xml" />
       </head>
       <body suppressHydrationWarning className={`${dmSans.variable} font-sans antialiased text-[#0F172A] bg-[#F8FAFC]`}>
         <GlobalErrorReporter />
@@ -106,7 +106,7 @@ export default function RootLayout({
                 "@type": "Organization",
                 "name": "OpticMart",
                 "url": "https://opticmart.shop",
-                "logo": "https://opticmart.shop/mainlogo.svg",
+                "logo": "https://opticmart.shop/logosvg.svg",
                 "description": "OpticMart - Premium Optics & Outdoor Gear.",
                 "telephone": "+18555292501",
                 "contactPoint": {

@@ -194,10 +194,10 @@ const Header = () => {
               {/* Logo - OpticMart SVG */}
               <Link href="/" className="flex items-center space-x-2 flex-shrink-0 text-white hover:opacity-90 transition-opacity py-1">
                 <Image
-                  src="/mainlogo.svg"
+                  src="/logosvg.svg"
                   alt="OpticMart Logo"
-                  width={200}
-                  height={50}
+                  width={210}
+                  height={42}
                   priority
                   className="w-44 sm:w-48 md:w-52 lg:w-56 h-auto text-white"
                 />
