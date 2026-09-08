@@ -1,5 +1,5 @@
-/** Public storefront market configuration. OpticMart currently sells in the U.S. only. */
-export type MarketKey = 'us';
+/** Public storefront market configuration. OpticMart currently operates in the UK with GBP (£). */
+export type MarketKey = 'uk';
 
 export interface MarketConfig {
   label: string;
@@ -18,43 +18,43 @@ export interface MarketConfig {
 }
 
 export const MARKETS: Record<MarketKey, MarketConfig> = {
-  us: {
-    label: 'United States',
-    flag: '🇺🇸',
-    currencyCode: 'USD',
-    currencySymbol: '$',
-    locale: 'en-US',
-    shipsFrom: 'United States',
-    shipsFromFlag: '🇺🇸',
-    deliveryDaysMin: 6,
-    deliveryDaysMax: 11,
-    freeShippingText: 'Free standard shipping on eligible U.S. orders',
+  uk: {
+    label: 'United Kingdom',
+    flag: '🇬🇧',
+    currencyCode: 'GBP',
+    currencySymbol: '£',
+    locale: 'en-GB',
+    shipsFrom: 'United Kingdom',
+    shipsFromFlag: '🇬🇧',
+    deliveryDaysMin: 2,
+    deliveryDaysMax: 4,
+    freeShippingText: 'Free standard shipping on eligible UK orders',
     returnsText: 'Eligible returns within 30 days',
-    faqShippingAnswer: 'Orders normally require 1–2 business days for handling. Standard transit is estimated at 5–9 business days after dispatch.',
-    faqFreeShippingAnswer: 'Standard shipping is free for eligible orders delivered to a serviceable United States address. Any different charge is shown before payment.',
+    faqShippingAnswer: 'Orders normally require 1–2 business days for handling. Standard UK transit is estimated at 2–4 business days after dispatch.',
+    faqFreeShippingAnswer: 'Standard shipping is free for eligible orders delivered to a serviceable United Kingdom address. Any different charge is shown before payment.',
   },
 };
 
-export const DEFAULT_MARKET = MARKETS.us;
+export const DEFAULT_MARKET = MARKETS.uk;
 
 export function getMarket(_key?: string | null): MarketConfig {
   return DEFAULT_MARKET;
 }
 
-export function formatMarketPrice(price: number, market: MarketConfig): string {
+export function formatMarketPrice(price: number, market: MarketConfig = DEFAULT_MARKET): string {
   const formatted = new Intl.NumberFormat(market.locale, {
-    minimumFractionDigits: 0,
+    minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   }).format(price);
   return `${market.currencySymbol}${formatted}`;
 }
 
-export function getDeliveryRange(market: MarketConfig): string {
+export function getDeliveryRange(market: MarketConfig = DEFAULT_MARKET): string {
   return `${market.deliveryDaysMin}–${market.deliveryDaysMax} business days`;
 }
 
 export const MARKET_OPTIONS = [
-  { value: 'us', label: '🇺🇸 United States (USD)' },
+  { value: 'uk', label: '🇬🇧 United Kingdom (GBP)' },
 ] as const;
 
-export const MARKET_CURRENCY_MAP: Record<string, string> = { us: 'USD' };
+export const MARKET_CURRENCY_MAP: Record<string, string> = { uk: 'GBP' };

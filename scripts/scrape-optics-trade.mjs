@@ -98,8 +98,8 @@ function parseProduct(html, productUrl) {
   const priceEur = parseFloat(priceStr) || 0;
   if (priceEur <= 0) return null;
 
-  // Convert to USD (approx 1.08x)
-  const price = Math.round(priceEur * 1.08 * 100) / 100;
+  // Convert to GBP (approx 0.86x)
+  const price = Math.round(priceEur * 0.86 * 100) / 100;
   const originalPrice = Math.round(price * 1.18 * 100) / 100;
 
   // Specifications
@@ -220,7 +220,7 @@ function parseProduct(html, productUrl) {
     category,
     brand,
     payee_email: 'arvaradodotcom@gmail.com',
-    currency: 'USD',
+    currency: 'GBP',
     checkout_link: 'https://opticmart.shop/checkout',
     checkout_flow: 'stripe',
     collections,
@@ -228,7 +228,7 @@ function parseProduct(html, productUrl) {
     is_featured: isFeatured,
     meta: {
       published: true,
-      targetMarket: 'us',
+      targetMarket: 'uk',
       gmc_enabled: true,
       sourceUrl: productUrl
     },

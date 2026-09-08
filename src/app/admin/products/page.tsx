@@ -549,7 +549,7 @@ export default function AdminProductsPage() {
           escapeCSV(p.title),
           escapeCSV(p.description),
           escapeCSV(p.price),
-          escapeCSV(p.currency || 'USD'),
+          escapeCSV(p.currency || 'GBP'),
           escapeCSV(p.category),
           escapeCSV(p.brand),
           escapeCSV(p.condition),
@@ -660,7 +660,7 @@ export default function AdminProductsPage() {
         const productLink = `${domain}/products/${pSlug}`;
         const isAvailable = p.inStock !== false ? 'in_stock' : 'out_of_stock';
         const rawPrice = Number(p.price || 0).toFixed(2);
-        const currency = p.currency || 'USD';
+        const currency = p.currency || 'GBP';
         const priceStr = `${rawPrice} ${currency}`;
 
         // Sale price if original price exists and is higher

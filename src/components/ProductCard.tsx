@@ -56,7 +56,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           {title}
         </h3>
         <div className="mt-auto pt-3 flex items-center justify-between gap-2 border-t border-[#0F172A]/10">
-          <span className="text-lg sm:text-xl font-bold text-[#0F172A]">${new Intl.NumberFormat('en-US').format(price)}</span>
+          <span className="text-lg sm:text-xl font-bold text-[#0F172A]">£{new Intl.NumberFormat('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(price)}</span>
           <Link
             href={`/products/${slug}`}
             className="flex items-center text-xs sm:text-sm font-semibold text-[#0284C7] hover:text-[#0F172A] transition-colors"

@@ -143,7 +143,7 @@ export async function POST(request: NextRequest) {
             line_items: [
                 {
                     price_data: {
-                        currency: dbProduct.currency?.toLowerCase() || 'usd',
+                        currency: dbProduct.currency?.toLowerCase() || 'gbp',
                         product_data: {
                             name: `OpticMart order - ${orderReference}`,
                             images: dbProduct.images && dbProduct.images.length > 0 ? [dbProduct.images[0]] : undefined,

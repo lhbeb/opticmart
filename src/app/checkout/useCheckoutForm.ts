@@ -27,14 +27,17 @@ function inferDefaultCountry(product?: Product | null): { code: string; name: st
 
   // Direct market → country code mapping
   const marketToCountry: Record<string, string> = {
+    uk: 'GB',
+    gb: 'GB',
     us: 'US',
     ca: 'CA',
     au: 'AU',
-    eu: 'DE', // EU products default to Germany
+    eu: 'DE',
   };
 
   // Currency fallback → country code mapping
   const currencyToCountry: Record<string, string> = {
+    GBP: 'GB',
     USD: 'US',
     CAD: 'CA',
     AUD: 'AU',
@@ -44,15 +47,15 @@ function inferDefaultCountry(product?: Product | null): { code: string; name: st
 
   const code = (market && marketToCountry[market])
     || (currency && currencyToCountry[currency])
-    || 'US';
+    || 'GB';
 
   return { code, name: getCountryName(code) };
 }
 
 const FALLBACK_SHIPPING_DATA: ShippingData = {
   fullName: '',
-  countryCode: 'US',
-  country: 'United States',
+  countryCode: 'GB',
+  country: 'United Kingdom',
   streetAddress: '',
   addressLine2: '',
   city: '',

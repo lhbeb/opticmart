@@ -147,10 +147,11 @@ export default function StripeEmbeddedCheckout({
     }, 550);
   };
 
+  const currencyCode = product.currency || 'GBP';
+  const currencySymbol = currencyCode === 'USD' ? '$' : (currencyCode === 'EUR' ? '€' : '£');
   const formattedPrice = product.price !== undefined
-    ? `$${product.price.toFixed(2)}`
+    ? `${currencySymbol}${product.price.toFixed(2)}`
     : null;
-  const currencyCode = product.currency || 'USD';
 
   return (
     <div className="min-h-screen bg-gray-50/50 py-6 sm:py-10 px-4 sm:px-6">

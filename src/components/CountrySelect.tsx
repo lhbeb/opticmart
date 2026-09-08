@@ -9,6 +9,8 @@ export interface CountryOption {
 }
 
 const COUNTRY_FLAGS: Record<string, string> = {
+  GB: '🇬🇧',
+  UK: '🇬🇧',
   US: '🇺🇸',
   CA: '🇨🇦',
   FR: '🇫🇷',

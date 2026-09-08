@@ -432,15 +432,15 @@ function SecureCheckoutInfo({ mobile = false }: { mobile?: boolean }) {
 
 function formatPrice(cartItem: CartItem, amount: number) {
   const { product } = cartItem;
-  const currency = product.currency || 'USD';
-  const targetMarket = product.meta?.targetMarket || '';
+  const currency = product.currency || 'GBP';
+  const targetMarket = product.meta?.targetMarket || 'uk';
 
-  let symbol = '$';
-  if (currency === 'GBP') symbol = '£';
+  let symbol = '£';
+  if (currency === 'USD') symbol = '$';
   else if (currency === 'EUR') symbol = '€';
   else if (currency === 'CAD') symbol = 'CA$';
   else if (currency === 'AUD') symbol = 'A$';
-  else if (targetMarket === 'uk') symbol = '£';
+  else if (targetMarket === 'us') symbol = '$';
   else if (targetMarket === 'eu') symbol = '€';
   else if (targetMarket === 'ca') symbol = 'CA$';
   else if (targetMarket === 'au') symbol = 'A$';

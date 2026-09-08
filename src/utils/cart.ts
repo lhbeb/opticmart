@@ -37,7 +37,7 @@ export function addToCart(product: Product): void {
       category: product.category || '',
       brand: product.brand || '',
       payeeEmail: product.payeeEmail || '',
-      currency: product.currency || 'USD',
+      currency: product.currency || 'GBP',
       checkoutLink: product.checkoutLink || '',
       checkoutFlow: product.checkoutFlow || 'buymeacoffee', // Preserve checkout flow
       rating: typeof product.rating === 'number' ? product.rating : 0,

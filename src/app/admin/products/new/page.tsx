@@ -134,7 +134,7 @@ export default function NewProductPage() {
     checkout_link: '',
     payee_email: '',
     checkout_flow: 'buymeacoffee' as CheckoutFlow, // Checkout flow type
-    currency: 'USD',
+    currency: 'GBP',
     images: '',
     rating: '0',
     review_count: '0',

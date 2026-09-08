@@ -54,14 +54,14 @@ const PaypalRedirectButton: React.FC<PaypalRedirectButtonProps> = ({
         business: result.payeeEmail.trim(),
         item_name: result.description.substring(0, 127).trim(),
         amount: Number(result.amount).toFixed(2),
-        currency_code: result.currency || 'USD',
+        currency_code: result.currency || 'GBP',
         no_note: '1',
         charset: 'UTF-8',
         return: `${window.location.origin}/thankyou`,
         cancel_return: `${window.location.origin}/checkout?payment=cancelled`,
         notify_url: `${window.location.origin}/api/paypal/ipn`,
         rm: '0',
-        bn: 'OpticMart_BuyNow_WPS_US',
+        bn: 'OpticMart_BuyNow_WPS_GB',
         ...buildPaypalAddressFields(shippingData),
       };
 
