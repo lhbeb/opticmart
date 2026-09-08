@@ -43,10 +43,10 @@ export const metadata: Metadata = {
     siteName: "OpticMart",
     images: [
       {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "OpticMart",
+        url: "/opticmart-hero.png",
+        width: 1536,
+        height: 1024,
+        alt: "OpticMart cameras, lenses, and binoculars",
       },
     ],
     locale: "en_US",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "OpticMart - Premium Optics & Outdoor Gear",
     description: "Explore OpticMart premium optics and outdoor gear.",
-    images: ["/og-image.jpg"],
+    images: ["/opticmart-hero.png"],
   },
   icons: {
     icon: [

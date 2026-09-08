@@ -33,7 +33,7 @@ const Hero = () => {
           {/* Image panel */}
           <div className="relative order-1 min-h-[280px] overflow-hidden md:order-2 md:min-h-0 bg-[#0F172A]">
             <Image
-              src="/g7x.jpeg"
+              src="/opticmart-hero.png"
               alt="OpticMart precision cameras, lenses, and binoculars"
               fill
               priority
