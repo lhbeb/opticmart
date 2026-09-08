@@ -27,10 +27,14 @@ const Footer = () => {
             <h3 className="text-base font-semibold text-white mb-4 tracking-wide uppercase">Navigation</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/" className="hover:text-white hover:underline transition-colors duration-200">Home</Link></li>
-              <li><Link href="/search?category=Cameras" className="hover:text-white hover:underline transition-colors duration-200">Cameras</Link></li>
               <li><Link href="/search?category=Binoculars" className="hover:text-white hover:underline transition-colors duration-200">Binoculars</Link></li>
-              <li><Link href="/search?category=Optics" className="hover:text-white hover:underline transition-colors duration-200">Lenses & Optics</Link></li>
-              <li><Link href="/#featured" className="hover:text-white hover:underline transition-colors duration-200">Featured Models</Link></li>
+              <li><Link href="/search?category=Riflescopes" className="hover:text-white hover:underline transition-colors duration-200">Riflescopes</Link></li>
+              <li><Link href="/search?category=Spotting+Scopes" className="hover:text-white hover:underline transition-colors duration-200">Spotting Scopes</Link></li>
+              <li><Link href="/search?category=Rangefinders" className="hover:text-white hover:underline transition-colors duration-200">Rangefinders</Link></li>
+              <li><Link href="/search?category=Red+Dots" className="hover:text-white hover:underline transition-colors duration-200">Red Dots</Link></li>
+              <li><Link href="/search?category=Thermal" className="hover:text-white hover:underline transition-colors duration-200">Thermal & Night Vision</Link></li>
+              <li><Link href="/search?category=Scope+Mounts" className="hover:text-white hover:underline transition-colors duration-200">Scope Mounts</Link></li>
+              <li><Link href="/#featured" className="hover:text-white hover:underline transition-colors duration-200">Featured Optics</Link></li>
               <li><Link href="/track" className="hover:text-white hover:underline transition-colors duration-200">Track Order</Link></li>
               <li><Link href="/contact" className="hover:text-white hover:underline transition-colors duration-200">Contact Us</Link></li>
             </ul>

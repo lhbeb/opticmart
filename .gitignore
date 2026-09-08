@@ -54,3 +54,4 @@ package-lock.wrong-directory*.backup.json
 inspect*.js
 test_*.js
 test_*.ts
+scripts/*progress.json

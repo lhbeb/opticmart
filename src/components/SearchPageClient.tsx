@@ -11,7 +11,21 @@ interface SearchPageClientProps {
   initialCategory?: string;
 }
 
-const CATALOG_CATEGORIES = ["Cameras", "Binoculars", "Camera Lenses", "Spotting Scopes", "Rangefinders", "Optics Accessories", "Digital Cameras", "Compact Binoculars"] as const;
+const CATALOG_CATEGORIES = [
+  "Binoculars",
+  "Riflescopes",
+  "Spotting Scopes",
+  "Rangefinders",
+  "Red Dots",
+  "Dot Sights",
+  "Monoculars",
+  "Night Vision",
+  "Thermal",
+  "Scope Mounts",
+  "Cameras",
+  "Precision Lenses",
+  "Optics Accessories"
+] as const;
 
 function getExactCatalogCategory(value: string): string {
   const normalizedValue = value.trim().toLowerCase();
@@ -170,13 +184,27 @@ export default function SearchPageClient({ initialQuery, initialCategory }: Sear
 
         const allProducts: Product[] = await response.json();
 
-        const filteredProducts = exactCategory
-          ? allProducts.filter(
-              (product) =>
-                String(product.category || '').trim().toLowerCase() ===
-                exactCategory.toLowerCase(),
-            )
-          : advancedSearch(allProducts, queryParam);
+        let filteredProducts: Product[] = allProducts;
+
+        if (exactCategory) {
+          const targetCat = exactCategory.toLowerCase();
+          const categoryMatches = allProducts.filter((product) => {
+            const prodCat = String(product.category || '').trim().toLowerCase();
+            if (prodCat === targetCat) return true;
+            if (targetCat === 'red dots' && (prodCat === 'dot sights' || prodCat.includes('dot'))) return true;
+            if (targetCat === 'scope mounts' && (prodCat === 'mounts' || prodCat === 'optics accessories')) return true;
+            return false;
+          });
+
+          if (queryParam && queryParam.trim().toLowerCase() !== exactCategory.toLowerCase()) {
+            const refined = advancedSearch(categoryMatches, queryParam);
+            filteredProducts = refined.length > 0 ? refined : advancedSearch(allProducts, queryParam);
+          } else {
+            filteredProducts = categoryMatches.length > 0 ? categoryMatches : advancedSearch(allProducts, exactCategory);
+          }
+        } else if (queryParam) {
+          filteredProducts = advancedSearch(allProducts, queryParam);
+        }
 
         setProducts(filteredProducts);
       } catch (err) {

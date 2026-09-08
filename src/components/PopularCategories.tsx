@@ -3,14 +3,16 @@ import Link from 'next/link';
 import type { Product } from '@/types/product';
 
 const POPULAR_CATEGORY_NAMES = [
-  'Cameras',
   'Binoculars',
-  'Camera Lenses',
+  'Riflescopes',
   'Spotting Scopes',
   'Rangefinders',
-  'Optics Accessories',
-  'Digital Cameras',
-  'Compact Binoculars'
+  'Red Dots',
+  'Monoculars',
+  'Night Vision',
+  'Thermal',
+  'Scope Mounts',
+  'Optics Accessories'
 ] as const;
 
 interface PopularCategoriesProps {

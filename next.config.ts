@@ -43,6 +43,18 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'www.optics-trade.eu',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'optics-trade.eu',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
   // Security headers to allow Ko-fi iframes, Tidio live chat, and prevent ad blocker issues
