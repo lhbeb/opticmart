@@ -16,11 +16,11 @@ interface CategorySectionProps {
 
 const CategorySection: React.FC<CategorySectionProps> = ({
   products,
-  title = 'Featured OpticMart Optics',
-  subtitle = 'Discover kayaks and paddling gear for your next adventure.',
+  title = 'Featured Cameras & Binoculars',
+  subtitle = 'Discover high-performance cameras, precision binoculars, and optical equipment.',
   maxDisplay = 8,
   shuffleForVisitor = false,
-  visitorShuffleKey = 'home-featured-kayaks',
+  visitorShuffleKey = 'home-featured-optics',
 }) => {
   const [displayedProducts, setDisplayedProducts] = useState<Product[]>(() =>
     products.slice(0, maxDisplay),

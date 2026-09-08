@@ -76,17 +76,17 @@ function shuffleReviews(reviews: Review[]): Review[] {
   return shuffled;
 }
 
-function isKayakText(value: unknown): boolean {
-  return typeof value === 'string' && /\b(kayaks?|paddles?|paddling)\b/i.test(value);
+function isOpticText(value: unknown): boolean {
+  return typeof value === 'string' && /\b(camera|binocular|optic|lens|scope|rangefinder|accessories|photography)\b/i.test(value);
 }
 
-function isKayakReview(review: Review): boolean {
-  return isKayakText(review.productTitle) || isKayakText(review.productSlug);
+function isOpticReview(review: Review): boolean {
+  return isOpticText(review.productTitle) || isOpticText(review.productSlug);
 }
 
 function shouldIncludeNativeSellerReview(review: Review): boolean {
-  // Only show reviews explicitly associated with kayaking products.
-  return isKayakReview(review);
+  // Only show reviews explicitly associated with camera and optics products.
+  return isOpticReview(review);
 }
 
 export async function getHomeReviewsFeed(limit: number = 6): Promise<{
@@ -119,7 +119,7 @@ export async function getHomeReviewsFeed(limit: number = 6): Promise<{
       .filter(
         (product) =>
           product.published !== false &&
-          [product.title, product.slug, product.category].some(isKayakText),
+          [product.title, product.slug, product.category].some(isOpticText),
       )
       .flatMap((product) =>
         (Array.isArray(product.reviews) ? product.reviews : []).map((review) => ({

@@ -2,7 +2,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Product } from '@/types/product';
 
-const POPULAR_CATEGORY_NAMES = ['Kayaks', 'Recreational Kayaks', 'Fishing Kayaks', 'Tandem Kayaks', 'Touring Kayaks', 'Inflatable Kayaks', 'Paddles', 'Kayak Accessories'] as const;
+const POPULAR_CATEGORY_NAMES = [
+  'Cameras',
+  'Binoculars',
+  'Camera Lenses',
+  'Spotting Scopes',
+  'Rangefinders',
+  'Optics Accessories',
+  'Digital Cameras',
+  'Compact Binoculars'
+] as const;
 
 interface PopularCategoriesProps {
   products: Product[];
@@ -11,7 +20,8 @@ interface PopularCategoriesProps {
 export default function PopularCategories({ products }: PopularCategoriesProps) {
   const categories = POPULAR_CATEGORY_NAMES.map((name) => {
     const categoryProducts = products.filter(
-      (product) => product.category?.trim().toLowerCase() === name.toLowerCase(),
+      (product) => product.category?.trim().toLowerCase() === name.toLowerCase() ||
+                   product.title?.toLowerCase().includes(name.toLowerCase())
     );
 
     return {
@@ -32,11 +42,14 @@ export default function PopularCategories({ products }: PopularCategoriesProps) 
               id="popular-categories-title"
               className="text-3xl font-bold tracking-tight text-[#0F172A] md:text-4xl"
             >
-              Explore Paddling Gear & Categories
+              Explore Optics Categories
             </h2>
+            <p className="mt-2 text-base text-gray-600">
+              Select from our curated collections of cameras, binoculars, lenses, and accessories.
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-5">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
             {categories.map((category) => (
               <Link
                 key={category.name}
@@ -49,7 +62,7 @@ export default function PopularCategories({ products }: PopularCategoriesProps) 
                     src={category.image!}
                     alt={`${category.name} collection`}
                     fill
-                    sizes="(max-width: 1023px) 50vw, 20vw"
+                    sizes="(max-width: 1023px) 50vw, 25vw"
                     className="object-contain p-5 sm:p-7 group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>

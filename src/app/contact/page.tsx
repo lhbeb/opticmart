@@ -19,7 +19,7 @@ export default function ContactPage() {
   const schemaMarkup = {
     '@context': 'https://schema.org', '@type': 'ContactPage',
     name: 'Contact OpticMart', url: 'https://opticmart.shop/contact',
-    description: 'Contact OpticMart for kayak questions and order support.',
+    description: 'Contact OpticMart for camera, binoculars, and order support.',
   };
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -68,7 +68,7 @@ export default function ContactPage() {
             <div className="p-6 sm:p-8">
               <h1 className="text-3xl font-bold text-[#0F172A] mb-2 font-heading">Contact OpticMart</h1>
               <p className="text-gray-600 mb-8 text-sm sm:text-base">
-                Have questions about kayaks, paddling accessories, delivery, or your order? Send us a message and our team will get back to you promptly.
+                Have questions about cameras, binoculars, lenses, shipping, or your order? Send us a message and our team will get back to you promptly.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Contact Form */}
@@ -118,7 +118,7 @@ export default function ContactPage() {
                         disabled={isSending}
                       >
                         <option value="">Select a reason</option>
-                        <option value="kayak-selection">Kayak Selection</option>
+                        <option value="optics-selection">Camera & Optics Advisory</option>
                         <option value="order-inquiry">Order & Delivery Status</option>
                         <option value="track-order">Track My Order</option>
                         <option value="product-support">Product Support</option>

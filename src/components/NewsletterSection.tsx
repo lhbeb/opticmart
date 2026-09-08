@@ -65,7 +65,7 @@ const NewsletterSection = () => {
           </h2>
 
           <p className="text-base md:text-lg text-[#F8FAFC]/85 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Get updates on OpticMart kayaks, paddling gear, and seasonal promotions.
+            Get updates on new camera releases, precision optics, binoculars, and exclusive promotions.
           </p>
 
           <form onSubmit={handleSubmit} className="max-w-md mx-auto">

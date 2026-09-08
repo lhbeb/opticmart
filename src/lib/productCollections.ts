@@ -1,13 +1,16 @@
 export const PRODUCT_COLLECTION_OPTIONS = [
-  { value: 'kayaks', label: 'Kayaks' },
-  { value: 'paddles', label: 'Paddles' },
-  { value: 'kayak-accessories', label: 'Kayak Accessories' },
+  { value: 'cameras', label: 'Cameras' },
+  { value: 'binoculars', label: 'Binoculars' },
+  { value: 'lenses', label: 'Camera Lenses' },
+  { value: 'optics', label: 'Precision Optics' },
+  { value: 'optics-accessories', label: 'Optics Accessories' },
 ] as const;
 
 export function getCollectionsForCategory(category: string): string[] {
   const normalized = category.toLowerCase().trim();
-  if (/accessor|gear|vest|storage|bag|rack/.test(normalized)) return ['kayak-accessories'];
-  if (/paddle/.test(normalized)) return ['paddles'];
-  if (/kayak/.test(normalized)) return ['kayaks'];
-  return [];
+  if (/accessor|tripod|strap|case|clean|filter|battery|charger/.test(normalized)) return ['optics-accessories'];
+  if (/lens|telephoto|macro|zoom/.test(normalized)) return ['lenses'];
+  if (/binocular|monocular|scope|rangefinder/.test(normalized)) return ['binoculars', 'optics'];
+  if (/camera|mirrorless|dslr|body/.test(normalized)) return ['cameras'];
+  return ['optics'];
 }

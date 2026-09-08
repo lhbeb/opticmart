@@ -11,7 +11,7 @@ interface SearchPageClientProps {
   initialCategory?: string;
 }
 
-const CATALOG_CATEGORIES = ["Kayaks", "Recreational Kayaks", "Fishing Kayaks", "Tandem Kayaks", "Touring Kayaks", "Inflatable Kayaks", "Paddles", "Kayak Accessories"] as const;
+const CATALOG_CATEGORIES = ["Cameras", "Binoculars", "Camera Lenses", "Spotting Scopes", "Rangefinders", "Optics Accessories", "Digital Cameras", "Compact Binoculars"] as const;
 
 function getExactCatalogCategory(value: string): string {
   const normalizedValue = value.trim().toLowerCase();
@@ -130,8 +130,8 @@ export default function SearchPageClient({ initialQuery, initialCategory }: Sear
   const searchParams = useSearchParams();
   const queryParam = searchParams.get("query") || initialQuery || "";
   const categoryParam = searchParams.get("category") || initialCategory || "";
-  // Old and cached navbar links used `?query=Kayaks`. Treat known catalog
-  // names as exact categories so accessory copy cannot leak into the results.
+  // Support direct category navigation and query filters. Treat known catalog
+  // names as exact categories so query matching stays precise.
   const exactCategory = categoryParam.trim() || getExactCatalogCategory(queryParam);
   const activeTerm = exactCategory || queryParam;
   const [products, setProducts] = useState<Product[]>([]);

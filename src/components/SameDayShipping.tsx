@@ -20,7 +20,7 @@ const SameDayShipping: React.FC<SameDayShippingProps> = ({ fullWidth = false, co
           <div className="relative min-h-[360px] w-full md:min-h-[400px] md:w-[45%]">
             <Image
               src="/opticmart-delivery.webp"
-              alt="OpticMart kayak secured for professional delivery"
+              alt="OpticMart precision cameras and binoculars packaged for secure delivery"
               fill
               sizes="(max-width: 768px) 100vw, 45vw"
               className="object-cover object-center"
@@ -35,7 +35,7 @@ const SameDayShipping: React.FC<SameDayShippingProps> = ({ fullWidth = false, co
             </h2>
 
             <p className="text-base sm:text-lg leading-relaxed font-normal mb-8 text-[#F8FAFC]/90">
-              Planning your next trip on the water? Review the <strong>OpticMart</strong> shipping policy for delivery options and dispatch details before placing your order.
+              Upgrading your photography gear or field optics? Review the <strong>OpticMart</strong> shipping policy for secure packaging, insured carrier transit, and dispatch estimates.
             </p>
             <Link
               href="/shipping-policy"
@@ -115,7 +115,7 @@ const SameDayShipping: React.FC<SameDayShippingProps> = ({ fullWidth = false, co
           href="#products"
           className="bg-[#0F172A] hover:bg-[#020617] text-[#F8FAFC] font-bold py-3.5 px-8 rounded-full text-base sm:text-lg transition-colors whitespace-nowrap shadow-sm"
         >
-          Browse Kayaks
+          Browse Cameras & Binoculars
         </a>
       </div>
     </div>

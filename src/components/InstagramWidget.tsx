@@ -29,7 +29,7 @@ const InstagramWidget: React.FC = () => {
             <p className="text-gray-600 text-sm mb-2">OpticMart Optics</p>
 
             {/* Statistics */}
-            <p className="text-sm text-gray-600">Stories from the water.</p>
+            <p className="text-sm text-gray-600">Stories through the lens.</p>
           </div>
         </div>
 

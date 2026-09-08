@@ -6,7 +6,7 @@ import { STORE_FAQS } from '@/lib/storeFaqs';
 export const metadata: Metadata = {
   title: 'Frequently Asked Questions | OpticMart Optics',
   description:
-    'Find answers about OpticMart kayaks, paddling accessories, delivery, returns, and support.',
+    'Find answers about OpticMart cameras, binoculars, lenses, and accessories, delivery, returns, and support.',
   alternates: {
     canonical: 'https://opticmart.shop/frequently-asked-questions',
   },
@@ -42,7 +42,7 @@ export default function FrequentlyAskedQuestionsPage() {
             Frequently Asked Questions
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-7 text-[#F8FAFC]/80 sm:text-lg">
-            Straightforward answers about OpticMart kayaks, product details, delivery, and support.
+            Straightforward answers about OpticMart cameras, binoculars, product details, delivery, and support.
           </p>
         </div>
       </section>
@@ -77,9 +77,9 @@ export default function FrequentlyAskedQuestionsPage() {
 
           <div className="mt-10 flex flex-col items-start justify-between gap-5 rounded-2xl bg-[#0F172A] p-6 text-[#F8FAFC] sm:flex-row sm:items-center sm:p-8 shadow-lg">
             <div>
-              <h2 className="text-xl font-bold sm:text-2xl text-white font-heading">Still have questions about our kayaks?</h2>
+              <h2 className="text-xl font-bold sm:text-2xl text-white font-heading">Still have questions about our cameras or binoculars?</h2>
               <p className="mt-2 text-sm text-[#F8FAFC]/80 sm:text-base">
-                Speak directly with a OpticMart kayak expert today.
+                Speak directly with an OpticMart optical gear specialist today.
               </p>
             </div>
             <Link

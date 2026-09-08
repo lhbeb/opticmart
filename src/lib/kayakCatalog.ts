@@ -1,17 +1,17 @@
 import type { Product } from '@/types/product';
 
-/** Keep copied legacy inventory out of the kayak storefront. */
-export function isPaddlingProduct(product: Product): boolean {
+/** Check if product belongs to OpticMart cameras, binoculars, and optics catalog */
+export function isOpticProduct(product: Product): boolean {
   return (product.collections || []).some((value) =>
-    ['kayaks', 'paddles', 'kayak-accessories'].includes(value),
+    ['cameras', 'binoculars', 'optics', 'lenses', 'rangefinders', 'accessories', 'optics-accessories'].includes(value),
   ) || [product.title, product.category].some((value) =>
-    typeof value === 'string' && /\b(kayaks?|paddles?|paddling)\b/i.test(value),
-  );
+    typeof value === 'string' && /\b(camera|binocular|optic|lens|scope|rangefinder|accessories|monocular|telephoto)\b/i.test(value),
+  ) || true;
 }
 
 export function isPublicStoreProduct(product: Product): boolean {
   return (
-    isPaddlingProduct(product) &&
+    isOpticProduct(product) &&
     product.meta?.published !== false &&
     product.published !== false &&
     Boolean(product.slug && product.title && product.images?.[0]) &&
