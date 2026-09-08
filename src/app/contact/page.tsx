@@ -29,6 +29,14 @@ export default function ContactPage() {
       url: 'https://opticmart.shop',
       telephone: brand.phone,
       email: brand.email,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '20–22 Wenlock Road',
+        addressLocality: 'London',
+        addressRegion: 'England',
+        postalCode: 'N1 7GU',
+        addressCountry: 'GB',
+      },
       contactPoint: {
         '@type': 'ContactPoint',
         telephone: brand.phone,

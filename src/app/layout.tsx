@@ -124,9 +124,10 @@ export default function RootLayout({
                 },
                 "address": {
                   "@type": "PostalAddress",
-                  "streetAddress": "71-75 Shelton Street, Covent Garden",
+                  "streetAddress": "20–22 Wenlock Road",
                   "addressLocality": "London",
-                  "postalCode": "WC2H 9JQ",
+                  "addressRegion": "England",
+                  "postalCode": "N1 7GU",
                   "addressCountry": "GB"
                 }
               })
