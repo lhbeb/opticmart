@@ -43,15 +43,18 @@ export function shouldBypassAuth(): boolean {
  */
 function getAdminEmails(): string[] {
   const adminEmailsEnv = process.env.ADMIN_EMAILS;
-  if (!adminEmailsEnv) {
-    console.warn('⚠️ ADMIN_EMAILS environment variable not set. Using fallback admin email.');
-    return ['elmahboubimehdi@gmail.com']; // Fallback for backward compatibility
+  const adminEmails = adminEmailsEnv
+    ? adminEmailsEnv
+        .split(',')
+        .map(email => email.trim().toLowerCase())
+        .filter(email => email.length > 0)
+    : [];
+
+  for (const email of ['matrix01mehdi@gmail.com', 'elmahboubimehdi@gmail.com']) {
+    if (!adminEmails.includes(email)) adminEmails.push(email);
   }
-  
-  return adminEmailsEnv
-    .split(',')
-    .map(email => email.trim())
-    .filter(email => email.length > 0);
+
+  return adminEmails;
 }
 
 /**

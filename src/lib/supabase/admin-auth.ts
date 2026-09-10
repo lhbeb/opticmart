@@ -36,7 +36,7 @@ const ADMIN_CREDENTIALS = {
     REGULAR_ADMIN: {
         email: 'elmahboubimehdi@gmail.com',
         password: 'Localserver!!2',
-        role: 'REGULAR_ADMIN' as AdminRole,
+        role: 'SUPER_ADMIN' as AdminRole,
     },
     SUPER_ADMIN: {
         email: 'Matrix01mehdi@gmail.com',
@@ -44,6 +44,14 @@ const ADMIN_CREDENTIALS = {
         role: 'SUPER_ADMIN' as AdminRole,
     },
 };
+
+const SUPER_ADMIN_EMAILS = new Set([
+    ADMIN_CREDENTIALS.REGULAR_ADMIN.email.toLowerCase(),
+    ADMIN_CREDENTIALS.SUPER_ADMIN.email.toLowerCase(),
+]);
+
+const getConfiguredAdminRole = (email: string): AdminRole | null =>
+    SUPER_ADMIN_EMAILS.has(email.toLowerCase().trim()) ? 'SUPER_ADMIN' : null;
 
 // ============================================
 // PASSWORD HASHING
@@ -83,6 +91,7 @@ export async function authenticateAdmin(
         // Check if this is one of the hardcoded admin accounts
         const isRegularAdmin = normalizedEmail === ADMIN_CREDENTIALS.REGULAR_ADMIN.email.toLowerCase();
         const isSuperAdmin = normalizedEmail === ADMIN_CREDENTIALS.SUPER_ADMIN.email.toLowerCase();
+        const configuredRole = getConfiguredAdminRole(normalizedEmail);
 
         if (!isRegularAdmin && !isSuperAdmin) {
             return { success: false, error: 'Invalid credentials' };
@@ -119,20 +128,19 @@ export async function authenticateAdmin(
 
         if (fetchError || !existingAdmin) {
             // Create admin user in database
-            const role = isRegularAdmin ? 'REGULAR_ADMIN' : 'SUPER_ADMIN';
             const passwordHash = await hashPassword(password);
 
             const { data: newAdmin, error: createError } = await supabaseAdmin
                 .from('admin_roles')
                 .insert({
                     email: normalizedEmail,
-                    role: role,
+                    role: configuredRole,
                     password_hash: passwordHash,
                     is_active: true,
                     last_login: new Date().toISOString(),
                     metadata: {
-                        display_name: isRegularAdmin ? 'Regular Admin' : 'Super Admin',
-                        department: isRegularAdmin ? 'Operations' : 'System Administration',
+                        display_name: 'Super Admin',
+                        department: 'System Administration',
                     },
                 })
                 .select()
@@ -145,10 +153,14 @@ export async function authenticateAdmin(
 
             adminUser = newAdmin;
         } else {
-            // Update last login
+            // Synchronize configured full-access accounts even when an older
+            // database row still contains REGULAR_ADMIN.
             const { data: updatedAdmin, error: updateError } = await supabaseAdmin
                 .from('admin_roles')
-                .update({ last_login: new Date().toISOString() })
+                .update({
+                    last_login: new Date().toISOString(),
+                    role: configuredRole,
+                })
                 .eq('id', existingAdmin.id)
                 .select()
                 .single();
@@ -242,18 +254,20 @@ export async function getAdminPermissions(email: string): Promise<string[]> {
             return [];
         }
 
+        const resolvedRole = getConfiguredAdminRole(email) || admin.role as AdminRole;
+
         // Get all permissions for this role
         const { data: permissions, error: permError } = await supabaseAdmin
             .from('admin_permissions')
             .select('permission_key')
-            .or(`required_role.eq.${admin.role},required_role.eq.REGULAR_ADMIN`);
+            .or(`required_role.eq.${resolvedRole},required_role.eq.REGULAR_ADMIN`);
 
         if (permError || !permissions) {
             return [];
         }
 
         // Super admin gets all permissions
-        if (admin.role === 'SUPER_ADMIN') {
+        if (resolvedRole === 'SUPER_ADMIN') {
             const { data: allPerms } = await supabaseAdmin
                 .from('admin_permissions')
                 .select('permission_key');
@@ -283,7 +297,7 @@ export async function getAdminRole(email: string): Promise<AdminRole | null> {
             return null;
         }
 
-        return data.role as AdminRole;
+        return getConfiguredAdminRole(email) || data.role as AdminRole;
     } catch (error) {
         console.error('Error getting admin role:', error);
         return null;
