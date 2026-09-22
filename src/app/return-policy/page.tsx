@@ -16,7 +16,7 @@ export default function ReturnPolicyPage() {
         <header className="rounded-3xl bg-[#0F172A] p-8 text-white sm:p-10">
           <p className="text-sm font-semibold uppercase text-[#9BD4D3]">Customer care</p>
           <h1 className="mt-3 text-4xl font-bold">Return & Refund Policy</h1>
-          <p className="mt-4 max-w-2xl text-lg leading-8 text-white/85">Eligible items may be returned by mail within {storePolicy.returnWindowDays} calendar days after delivery.</p>
+          <p className="mt-4 max-w-2xl text-lg leading-8 text-white/85">Eligible items may be returned by post within {storePolicy.returnWindowDays} calendar days after delivery.</p>
         </header>
 
         <section className="mt-8 grid gap-4 sm:grid-cols-3">
