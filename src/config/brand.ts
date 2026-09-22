@@ -5,7 +5,7 @@ export const brand = {
   description: 'Authorized dealer of professional digital cameras, precision binoculars, camera lenses, and optical equipment based in the United Kingdom.',
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'support@opticmart.shop',
   phone: process.env.NEXT_PUBLIC_CONTACT_PHONE || '+44 20 7946 0912',
-  address: process.env.NEXT_PUBLIC_BUSINESS_ADDRESS || '20–22 Wenlock Road, London, England, N1 7GU, United Kingdom',
+  address: process.env.NEXT_PUBLIC_BUSINESS_ADDRESS || 'C5 North Rd, Bridgend CF31 3TP, United Kingdom',
   instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || 'https://www.instagram.com/opticmartofficial/',
   timeZone: 'Europe/London',
   timeZoneLabel: 'GMT / BST (UK Time)',
