@@ -89,6 +89,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="preload" href="/logosvg.svg" as="image" type="image/svg+xml" />
+        <meta name="google-site-verification" content="CSS4W-VRosTmNeHZ7ZjrgKa56h-8SSWs2MqFbEEdZdY" />
       </head>
       <body suppressHydrationWarning className={`${dmSans.variable} font-sans antialiased text-[#0F172A] bg-[#F8FAFC]`}>
         <GlobalErrorReporter />
