@@ -29,7 +29,7 @@ export default function BillingPolicyPage() {
           <div>
             <h2 className="text-2xl font-bold text-[#0F172A]">Order Review and Acceptance</h2>
             <p className="mt-3 leading-7">
-              Placing an order does not mean it has been accepted for fulfillment. OpticMart may review product availability, payment status, billing details, shipping information, and fraud indicators before accepting or dispatching an order.
+              Placing an order does not mean it has been accepted for fulfillment. OpticMart may review product availability, payment status, billing details, shipping information, and fraud indicators before accepting or dispatching an order. We currently serve customers within the United Kingdom.
             </p>
           </div>
 
@@ -50,14 +50,14 @@ export default function BillingPolicyPage() {
           <div>
             <h2 className="text-2xl font-bold text-[#0F172A]">Payment Authorization</h2>
             <p className="mt-3 leading-7">
-              Payments may be authorized by a third-party payment provider before an order is processed. An authorization or payment confirmation does not guarantee shipment if the order later fails review or cannot be fulfilled.
+              Payments may be authorized by a third-party payment provider before an order is processed. An authorization or payment confirmation does not guarantee dispatch if the order later fails review or cannot be fulfilled. We aim to notify you promptly when an issue is identified.
             </p>
           </div>
 
           <div>
             <h2 className="text-2xl font-bold text-[#0F172A]">Customer Contact About Cancellations</h2>
             <p className="mt-3 leading-7">
-              If an order is cancelled or requires additional review, OpticMart may contact you using the email address or phone number provided at checkout. Refunds for cancelled paid orders are handled according to our return and refund process and the payment provider timeline.
+              If an order is cancelled or requires additional review, OpticMart may contact you using the email address or phone number provided at checkout. Refunds for cancelled paid orders are handled according to our <Link href="/return-policy" className="font-semibold text-[#0F172A] hover:underline">Return & Refund Policy</Link> and the payment provider timeline, typically within 5 business days.
             </p>
           </div>
 
@@ -78,6 +78,8 @@ export default function BillingPolicyPage() {
               <BrandContactDetails />
             </div>
           </div>
+
+          <p className="border-t pt-6 text-sm text-gray-500">Last updated: September 19, 2026</p>
         </section>
       </div>
     </main>

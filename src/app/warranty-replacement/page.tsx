@@ -28,14 +28,14 @@ export default function WarrantyReplacementPage() {
           <div>
             <h2 className="text-2xl font-bold text-[#0F172A]">Product-Specific Coverage</h2>
             <p className="mt-3 leading-7">
-              Warranty coverage is determined by the applicable product listing, order information, manufacturer warranty, and any written support confirmation from OpticMart. This page does not create coverage beyond what is stated for the relevant product or required by applicable law.
+              Warranty coverage is determined by the applicable product listing, order information, manufacturer warranty, and any written support confirmation from OpticMart. This page does not create coverage beyond what is stated for the relevant product or required by applicable UK law. Your statutory rights under UK consumer protection laws are not affected by this policy.
             </p>
           </div>
 
           <div>
             <h2 className="text-2xl font-bold text-[#0F172A]">Manufacturer and Brand Warranties</h2>
             <p className="mt-3 leading-7">
-              Some products may include manufacturer warranty information. If a manufacturer warranty applies, customers may need to follow the manufacturer&apos;s registration, proof-of-purchase, inspection, or service process.
+              Many optical products such as cameras, lenses, and binoculars include manufacturer warranty information. If a manufacturer warranty applies, customers may need to follow the manufacturer&apos;s registration, proof-of-purchase, inspection, or service process. OpticMart can provide support documentation for warranty claims when requested.
             </p>
           </div>
 
@@ -71,6 +71,8 @@ export default function WarrantyReplacementPage() {
               <BrandContactDetails />
             </div>
           </div>
+
+          <p className="border-t pt-6 text-sm text-gray-500">Last updated: September 19, 2026</p>
         </section>
       </div>
     </main>

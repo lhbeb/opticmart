@@ -68,6 +68,8 @@ export default function ReportSecurityIssuesPage() {
               <BrandContactDetails />
             </div>
           </div>
+
+          <p className="border-t pt-6 text-sm text-gray-500">Last updated: September 19, 2026</p>
         </section>
       </div>
     </main>

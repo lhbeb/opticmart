@@ -42,7 +42,7 @@ export default function BillingTermsPage() {
           <div>
             <h2 className="text-2xl font-bold text-[#0F172A]">Payment Methods and Currency</h2>
             <p className="mt-3 leading-7">
-              Products are listed and charged in USD unless a product page or checkout page clearly states otherwise. Checkout may support payment cards through Stripe and PayPal-based payment options where enabled.
+              Products are listed and charged in GBP (British Pounds) unless a product page or checkout page clearly states otherwise. Checkout may support payment cards through Stripe and PayPal-based payment options where enabled. We accept major credit and debit cards.
             </p>
           </div>
 
@@ -73,6 +73,8 @@ export default function BillingTermsPage() {
               <BrandContactDetails />
             </div>
           </div>
+
+          <p className="border-t pt-6 text-sm text-gray-500">Last updated: September 19, 2026</p>
         </section>
       </div>
     </main>
